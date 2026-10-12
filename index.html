@@ -1,381 +1,791 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conav Assessoria e Consultoria Contábil | Curitiba-PR</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome (Ícones) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <!-- Google Fonts (Inter) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            color: #333333;
-        }
-        .bg-navy {
-            background-color: #0b2545;
-        }
-        .text-navy {
-            color: #0b2545;
-        }
-        .bg-gold {
-            background-color: #c5a059;
-        }
-        .text-gold {
-            color: #c5a059;
-        }
-        .btn-gold {
-            background-color: #c5a059;
-            color: #ffffff;
-            font-weight: 600;
-            border: none;
-        }
-        .btn-gold:hover {
-            background-color: #b08d46;
-            color: #ffffff;
-        }
-        .hero-section {
-            background: linear-gradient(rgba(11, 37, 69, 0.9), rgba(11, 37, 69, 0.85)), url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-            padding: 120px 0 80px 0;
-        }
-        .card-service {
-            border: none;
-            border-radius: 12px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card-service:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1) !important;
-        }
-        .icon-box {
-            width: 65px;
-            height: 65px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-        .feature-icon {
-            font-size: 2.5rem;
-            color: #c5a059;
-        }
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            min-height: 350px;
-            border: 0;
-            border-radius: 12px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conav Assessoria e Consultoria | Contabilidade em Curitiba - PR</title>
+  <meta name="description" content="Conav Assessoria e Consultoria: contabilidade, auditoria e consultoria tributária em Curitiba/PR desde 2013. CRC PR-008132/O. Simples Nacional, folha, impostos e gestão contábil.">
+  <meta name="keywords" content="contabilidade Curitiba, escritório contábil, assessoria tributária, Simples Nacional, abertura de empresa, CRC PR-008132/O">
+  <meta name="author" content="Conav Assessoria e Consultoria LTDA">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Conav Assessoria e Consultoria">
+  <meta property="og:description" content="Contabilidade, auditoria e consultoria empresarial em Curitiba/PR.">
+  <meta property="og:type" content="website">
+
+  <link href="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css)" rel="stylesheet">
+  <link href="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css)" rel="stylesheet">
+  <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap)" rel="stylesheet">
+
+  <style>
+    :root {
+      --conav-azul:      #0b2f5e;
+      --conav-azul-med:  #14508f;
+      --conav-verde:     #1fa97a;
+      --conav-dourado:   #c9a227;
+      --conav-cinza:     #f4f7fb;
+      --conav-texto:     #33475b;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      color: var(--conav-texto);
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4, .navbar-brand { font-weight: 700; color: var(--conav-azul); }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 4px;
+      margin: 14px auto 0;
+      border-radius: 4px;
+      background: var(--conav-dourado);
+    }
+    .section-title.text-start::after { margin-left: 0; }
+
+    /* ---------- NAVBAR ---------- */
+    .navbar {
+      background: rgba(255, 255, 255, .96);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 18px rgba(11, 47, 94, .08);
+    }
+    .navbar-brand { font-size: 1.4rem; letter-spacing: -.5px; }
+    .navbar-brand span { color: var(--conav-verde); }
+    .navbar .nav-link {
+      color: var(--conav-azul);
+      font-weight: 600;
+      margin: 0 .35rem;
+      position: relative;
+    }
+    .navbar .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: 2px;
+      width: 0; height: 2px;
+      background: var(--conav-verde);
+      transition: width .3s ease;
+    }
+    .navbar .nav-link:hover::after { width: 100%; }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      position: relative;
+      padding: 170px 0 110px;
+      color: #fff;
+      background:
+        linear-gradient(120deg, rgba(11,47,94,.94) 0%, rgba(20,80,143,.88) 55%, rgba(31,169,122,.78) 100%),
+        url('[images.unsplash.com](https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1600&q=80)') center/cover no-repeat;
+    }
+    .hero h1 { color: #fff; font-size: clamp(2rem, 4.2vw, 3.3rem); line-height: 1.2; }
+    .hero .lead { font-size: 1.1rem; opacity: .94; max-width: 620px; }
+    .hero .badge-soft {
+      background: rgba(255,255,255,.15);
+      border: 1px solid rgba(255,255,255,.3);
+      color: #fff;
+      font-weight: 500;
+      padding: .45rem 1rem;
+      border-radius: 50px;
+    }
+    .btn-conav {
+      background: var(--conav-verde);
+      border: none;
+      color: #fff;
+      font-weight: 600;
+      padding: .8rem 1.8rem;
+      border-radius: 50px;
+      transition: .25s;
+    }
+    .btn-conav:hover { background: #178a63; color:#fff; transform: translateY(-2px); }
+    .btn-outline-conav {
+      border: 2px solid rgba(255,255,255,.7);
+      color: #fff; font-weight: 600;
+      padding: .75rem 1.8rem; border-radius: 50px;
+      transition: .25s;
+    }
+    .btn-outline-conav:hover { background: #fff; color: var(--conav-azul); }
+
+    /* ---------- CARDS ---------- */
+    .card-servico {
+      border: 1px solid #e6edf5;
+      border-radius: 16px;
+      padding: 2rem 1.6rem;
+      height: 100%;
+      background: #fff;
+      transition: .3s ease;
+    }
+    .card-servico:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(11,47,94,.12);
+      border-color: var(--conav-verde);
+    }
+    .card-servico .icone {
+      width: 60px; height: 60px;
+      display: grid; place-items: center;
+      border-radius: 14px;
+      font-size: 1.7rem;
+      background: var(--conav-cinza);
+      color: var(--conav-azul-med);
+      margin-bottom: 1.1rem;
+      transition: .3s;
+    }
+    .card-servico:hover .icone { background: var(--conav-verde); color: #fff; }
+
+    /* ---------- SECTION ALTERNATE ---------- */
+    .bg-cinza { background: var(--conav-cinza); }
+
+    /* ---------- NÚMEROS ---------- */
+    .numero { font-size: 2.4rem; font-weight: 800; color: var(--conav-azul); line-height: 1; }
+    .numero-label { font-size: .9rem; text-transform: uppercase; letter-spacing: .06em; color: #6b7d92; }
+
+    /* ---------- SOBRE (imagem + selo) ---------- */
+    .selo-crc {
+      background: var(--conav-azul);
+      color: #fff;
+      border-radius: 16px;
+      padding: 1.4rem;
+      text-align: center;
+      border-bottom: 5px solid var(--conav-dourado);
+    }
+    .selo-crc i { font-size: 1.8rem; color: var(--conav-dourado); }
+
+    /* ---------- TIMELINE / INFO ---------- */
+    .info-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px dashed #d8e2ee;
+    }
+    .info-item:last-child { border-bottom: none; }
+    .info-item i { color: var(--conav-verde); font-size: 1.3rem; margin-top: .2rem; }
+
+    /* ---------- CNAE ---------- */
+    .cnae-principal {
+      background: linear-gradient(135deg, var(--conav-azul), var(--conav-azul-med));
+      color: #fff;
+      border-radius: 16px;
+      padding: 1.5rem;
+    }
+    .cnae-sec {
+      background: #fff;
+      border-left: 4px solid var(--conav-verde);
+      border-radius: 10px;
+      padding: 1.1rem 1.3rem;
+      box-shadow: 0 4px 14px rgba(11,47,94,.06);
+      height: 100%;
+    }
+
+    /* ---------- DEPOIMENTO / FRASE ---------- */
+    .frase-destaque {
+      background: linear-gradient(120deg, var(--conav-azul), var(--conav-azul-med));
+      color: #fff;
+      border-radius: 20px;
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .frase-destaque::before {
+      content: "\201C";
+      position: absolute;
+      top: -40px; left: 20px;
+      font-size: 12rem;
+      color: rgba(255,255,255,.08);
+      font-family: Georgia, serif;
+    }
+    .frase-destaque i.bi { color: var(--conav-dourado); }
+
+    /* ---------- FAQ ---------- */
+    .accordion-button:not(.collapsed) {
+      background: rgba(31,169,122,.08);
+      color: var(--conav-azul);
+      box-shadow: none;
+    }
+    .accordion-button:focus { box-shadow: none; border-color: #d8e2ee; }
+
+    /* ---------- CTA ---------- */
+    .cta {
+      background: linear-gradient(120deg, var(--conav-verde), #16805d);
+      color: #fff;
+      border-radius: 20px;
+      padding: 3rem 2rem;
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      background: var(--conav-azul);
+      color: #c9d8e8;
+      padding-top: 3.5rem;
+    }
+    footer h5 { color: #fff; margin-bottom: 1.1rem; }
+    footer a { color: #c9d8e8; text-decoration: none; transition: .2s; }
+    footer a:hover { color: var(--conav-verde); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,.12); margin-top: 2.5rem; padding: 1.3rem 0; font-size: .87rem; }
+    .social-icon {
+      width: 40px; height: 40px;
+      display: grid; place-items: center;
+      border-radius: 10px;
+      background: rgba(255,255,255,.1);
+      transition: .25s;
+    }
+    .social-icon:hover { background: var(--conav-verde); color: #fff; }
+
+    /* ---------- WHATSAPP FLOAT ---------- */
+    .whats-float {
+      position: fixed;
+      right: 22px; bottom: 22px;
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: #25d366;
+      color: #fff;
+      display: grid; place-items: center;
+      font-size: 1.6rem;
+      box-shadow: 0 8px 22px rgba(0,0,0,.2);
+      z-index: 1030;
+      transition: .25s;
+    }
+    .whats-float:hover { transform: scale(1.08); color: #fff; }
+
+    @media (max-width: 991px) {
+      .hero { padding: 130px 0 80px; }
+    }
+  </style>
 </head>
+
 <body>
 
-    <!-- Topbar com Informações Rápidas -->
-    <div class="bg-navy text-white py-2 d-none d-md-block border-bottom border-secondary">
-        <div class="container d-flex justify-content-between align-items-center fs-7">
-            <div>
-                <i class="fa-solid fa-location-dot text-gold me-2"></i>Avenida Winston Churchill, 1824 - Capão Raso, Curitiba - PR
-            </div>
-            <div>
-                <a href="tel:4130157392" class="text-white text-decoration-none me-4"><i class="fa-solid fa-phone text-gold me-2"></i>(41) 3015-7392</a>
-                <a href="mailto:leticiadasilva@tmaenergiasolar.com" class="text-white text-decoration-none"><i class="fa-solid fa-envelope text-gold me-2"></i>leticiadasilva@tmaenergiasolar.com</a>
-            </div>
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg fixed-top py-3">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio">
+      <i class="bi bi-graph-up-arrow" style="color:var(--conav-verde);font-size:1.6rem;"></i>
+      Conav<span>.</span>
+    </a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+        <li class="nav-item"><a class="nav-link" href="#servicos">Serviços</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link" href="#dados">Dados</a></li>
+        <li class="nav-item"><a class="nav-link" href="#faq">FAQ</a></li>
+        <li class="nav-item ms-lg-3">
+          <a class="btn btn-conav btn-sm px-4" href="#contato">
+            <i class="bi bi-chat-dots me-1"></i> Fale Conosco
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="inicio">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-8">
+        <span class="badge-soft d-inline-flex align-items-center gap-2 mb-4">
+          <i class="bi bi-patch-check-fill"></i> CRC PR-008132/O &middot; Desde 2013
+        </span>
+        <h1 class="mb-4">Sua empresa em boas mãos:<br>contabilidade que gera <span style="color:#7de3b8;">confiança</span>.</h1>
+        <p class="lead mb-4">
+          Assessoria contábil, tributária e de gestão empresarial em Curitiba/PR.
+          Cuidamos da burocracia para você focar no crescimento do seu negócio.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#contato" class="btn btn-conav"><i class="bi bi-whatsapp me-2"></i>Solicitar proposta</a>
+          <a href="#servicos" class="btn btn-outline-conav">Nossos serviços</a>
         </div>
+        <div class="row mt-5 g-4">
+          <div class="col-4">
+            <div class="numero text-white">13</div>
+            <div class="numero-label text-white-50">Anos de experiência</div>
+          </div>
+          <div class="col-4">
+            <div class="numero text-white">100%</div>
+            <div class="numero-label text-white-50">Foco no cliente</div>
+          </div>
+          <div class="col-4">
+            <div class="numero text-white">PR</div>
+            <div class="numero-label text-white-50">Curitiba e região</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= DIFERENCIAIS ================= -->
+<section class="py-5 bg-white">
+  <div class="container py-4">
+    <div class="row g-4 text-center">
+      <div class="col-md-4">
+        <i class="bi bi-shield-check fs-1" style="color:var(--conav-verde);"></i>
+        <h5 class="mt-3">Segurança e conformidade</h5>
+        <p class="mb-0 small">Empresa regular, situação cadastral <strong>ativa</strong> e registrada no CRC do Paraná.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-lightning-charge fs-1" style="color:var(--conav-dourado);"></i>
+        <h5 class="mt-3">Agilidade no atendimento</h5>
+        <p class="mb-0 small">Respostas rápidas e acompanhamento próximo das demandas do seu negócio.</p>
+      </div>
+      <div class="col-md-4">
+        <i class="bi bi-people fs-1" style="color:var(--conav-azul-med);"></i>
+        <h5 class="mt-3">Atendimento personalizado</h5>
+        <p class="mb-0 small">Cada empresa é única — tratamos a sua com a atenção que ela merece.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVIÇOS ================= -->
+<section class="py-5 bg-cinza" id="servicos">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Nossos Serviços</h2>
+      <p class="mt-4 text-muted mx-auto" style="max-width:640px;">
+        Soluções completas em contabilidade, consultoria e gestão para micro, pequenas e médias empresas.
+      </p>
     </div>
 
-    <!-- Navegação -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-navy fs-3" href="#">
-                <i class="fa-solid fa-chart-line text-gold me-2"></i>CONAV
-                <span class="fs-6 d-block text-muted fw-normal">Assessoria & Consultoria</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto fw-medium">
-                    <li class="nav-item"><a class="nav-link text-navy" href="#inicio">Início</a></li>
-                    <li class="nav-item"><a class="nav-link text-navy" href="#sobre">Sobre Nós</a></li>
-                    <li class="nav-item"><a class="nav-link text-navy" href="#servicos">Atividades</a></li>
-                    <li class="nav-item"><a class="nav-link text-navy" href="#transparencia">Transparência</a></li>
-                    <li class="nav-item"><a class="nav-link text-navy" href="#contato">Contato</a></li>
-                </ul>
-                <a href="https://wa.me/554130157392" target="_blank" class="btn btn-gold ms-lg-3 px-4 rounded-pill">
-                    <i class="fa-brands fa-whatsapp me-2"></i>Fale Conosco
-                </a>
-            </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card-servico">
+          <div class="icone"><i class="bi bi-calculator"></i></div>
+          <h5>Contabilidade</h5>
+          <p class="mb-0 small">Escrituração contábil completa, balanços, demonstrações e relatórios gerenciais claros para a tomada de decisão.</p>
         </div>
-    </nav>
+      </div>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero-section text-white text-center text-lg-start">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-7">
-                    <span class="badge bg-gold text-dark mb-3 px-3 py-2 rounded-pill fs-6">Tradição & Eficiência Desde 2013</span>
-                    <h1 class="display-4 fw-bold mb-4">Soluções Contábeis e Estratégicas para o seu Negócio</h1>
-                    <p class="lead mb-4 text-light">A Conav oferece assessoria contábil completa, auditoria tributária e consultoria em gestão empresarial para impulsionar o crescimento seguro da sua empresa.</p>
-                    <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-start">
-                        <a href="#contato" class="btn btn-gold btn-lg px-4 rounded-pill">Solicitar Orçamento</a>
-                        <a href="#servicos" class="btn btn-outline-light btn-lg px-4 rounded-pill">Nossas Especialidades</a>
-                    </div>
-                </div>
-            </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-servico">
+          <div class="icone"><i class="bi bi-receipt"></i></div>
+          <h5>Apuração de Tributos</h5>
+          <p class="mb-0 small">Cálculo e apuração de impostos federais, estaduais e municipais, com foco em economia legal e no Simples Nacional.</p>
         </div>
-    </section>
+      </div>
 
-    <!-- Seção Destaques Rápidos -->
-    <section class="py-4 bg-light border-bottom">
-        <div class="container">
-            <div class="row text-center g-4">
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center justify-content-center gap-3">
-                        <i class="fa-solid fa-award feature-icon"></i>
-                        <div class="text-start">
-                            <h6 class="fw-bold mb-0 text-navy">+13 Anos de Atuação</h6>
-                            <small class="text-muted">Experiência e solidez no mercado</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center justify-content-center gap-3">
-                        <i class="fa-solid fa-id-card feature-icon"></i>
-                        <div class="text-start">
-                            <h6 class="fw-bold mb-0 text-navy">CRC Regularizado</h6>
-                            <small class="text-muted">Inscrição PR-008132/O</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="d-flex align-items-center justify-content-center gap-3">
-                        <i class="fa-solid fa-shield-halved feature-icon"></i>
-                        <div class="text-start">
-                            <h6 class="fw-bold mb-0 text-navy">Gestão de Gestores</h6>
-                            <small class="text-muted">Sócio-Administrador: Fabiana Scarante</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-servico">
+          <div class="icone"><i class="bi bi-search"></i></div>
+          <h5>Auditoria Contábil e Tributária</h5>
+          <p class="mb-0 small">Análise técnica das demonstrações e da situação fiscal da empresa, identificando riscos e oportunidades.</p>
         </div>
-    </section>
+      </div>
 
-    <!-- Sobre a Empresa -->
-    <section id="sobre" class="py-5">
-        <div class="container py-4">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                    <h2 class="fw-bold text-navy mb-3">Conav Assessoria e Consultoria LTDA</h2>
-                    <h5 class="text-gold mb-4 fw-normal">Parceria estratégica focada em resultados e conformidade fiscal.</h5>
-                    <p class="text-muted">Fundada em 23 de setembro de 2013, a Conav Assessoria e Consultoria é uma empresa consolidada no mercado de Curitiba - PR, especializada na prestação de serviços contábeis, gestão tributária e consultoria corporativa.</p>
-                    <p class="text-muted">Com atuação voltada à excelência operacional, auxiliamos micro e pequenas empresas a manterem suas obrigações em dia, reduzindo custos tributários dentro da legalidade e otimizando a tomada de decisões financeiras.</p>
-                    
-                    <div class="row mt-4">
-                        <div class="col-6">
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fa-solid fa-circle-check text-gold me-2"></i>Optante pelo Simples Nacional</li>
-                                <li class="mb-2"><i class="fa-solid fa-circle-check text-gold me-2"></i>Atendimento Personalizado</li>
-                            </ul>
-                        </div>
-                        <div class="col-6">
-                            <ul class="list-unstyled">
-                                <li class="mb-2"><i class="fa-solid fa-circle-check text-gold me-2"></i>Consultoria de Gestão</li>
-                                <li class="mb-2"><i class="fa-solid fa-circle-check text-gold me-2"></i>Auditoria Tributária</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="bg-navy p-5 rounded-4 text-white shadow-lg">
-                        <h4 class="text-gold fw-bold mb-4">Por que escolher a Conav?</h4>
-                        <div class="d-flex mb-4">
-                            <div class="me-3"><i class="fa-solid fa-user-tie text-gold fs-3"></i></div>
-                            <div>
-                                <h5>Liderança Qualificada</h5>
-                                <p class="small text-light">Gestão conduzida por Fabiana Scarante (Sócio-Administrador), garantindo responsabilidade técnica e proximidade no atendimento.</p>
-                            </div>
-                        </div>
-                        <div class="d-flex mb-4">
-                            <div class="me-3"><i class="fa-solid fa-scale-balanced text-gold fs-3"></i></div>
-                            <div>
-                                <h5>Conformidade e Segurança</h5>
-                                <p class="small text-light">Registro ativo sob o CRC PR-008132/O, assegurando rigor ético e técnico em todas as operações.</p>
-                            </div>
-                        </div>
-                        <div class="d-flex">
-                            <div class="me-3"><i class="fa-solid fa-building-circle-check text-gold fs-3"></i></div>
-                            <div>
-                                <h5>Sede Própria na Capital</h5>
-                                <p class="small text-light mb-0">Localizada no Condomínio Piemonte Versati, no tradicional bairro Capão Raso em Curitiba.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-servico">
+          <div class="icone"><i class="bi bi-briefcase"></i></div>
+          <h5>Consultoria Empresarial</h5>
+          <p class="mb-0 small">Planejamento e gestão do negócio, análise de custos, formação de preço e apoio estratégico ao gestor.</p>
         </div>
-    </section>
+      </div>
 
-    <!-- Serviços (CNAEs) -->
-    <section id="servicos" class="py-5 bg-light">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold text-navy">Nossas Áreas de Atuação</h2>
-                <p class="text-muted">Serviços especializados estruturados para cobrir todas as demandas da sua empresa.</p>
-            </div>
-            <div class="row g-4">
-                <!-- Principal -->
-                <div class="col-md-4">
-                    <div class="card h-100 card-service shadow-sm p-4">
-                        <div class="icon-box bg-navy text-gold">
-                            <i class="fa-solid fa-calculator"></i>
-                        </div>
-                        <span class="badge bg-secondary w-auto mb-2 align-self-start">CNAE Principal 69.20-6-01</span>
-                        <h4 class="fw-bold text-navy">Atividades de Contabilidade</h4>
-                        <p class="text-muted small">Execução e emissão de balanços, demonstrações financeiras, escrituração contábil e fiscal diária, além do cumprimento de todas as obrigações acessórias.</p>
-                    </div>
-                </div>
-                <!-- Secundária 1 -->
-                <div class="col-md-4">
-                    <div class="card h-100 card-service shadow-sm p-4">
-                        <div class="icon-box bg-navy text-gold">
-                            <i class="fa-solid fa-briefcase"></i>
-                        </div>
-                        <span class="badge bg-secondary w-auto mb-2 align-self-start">CNAE Secundário 70.20-4-00</span>
-                        <h4 class="fw-bold text-navy">Consultoria em Gestão Empresarial</h4>
-                        <p class="text-muted small">Orientação estratégica para tomada de decisões, planejamento financeiro, melhoria de processos internos e suporte no crescimento do seu negócio.</p>
-                    </div>
-                </div>
-                <!-- Secundária 2 -->
-                <div class="col-md-4">
-                    <div class="card h-100 card-service shadow-sm p-4">
-                        <div class="icon-box bg-navy text-gold">
-                            <i class="fa-solid fa-file-invoice-dollar"></i>
-                        </div>
-                        <span class="badge bg-secondary w-auto mb-2 align-self-start">CNAE Secundário 69.20-6-02</span>
-                        <h4 class="fw-bold text-navy">Auditoria e Consultoria Tributária</h4>
-                        <p class="text-muted small">Análise rigorosa das rotinas fiscais, identificação de oportunidades de economia de impostos e prevenção contra passivos fiscais.</p>
-                    </div>
-                </div>
-            </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-servico">
+          <div class="icone"><i class="bi bi-person-badge"></i></div>
+          <h5>Departamento Pessoal</h5>
+          <p class="mb-0 small">Folha de pagamento, admissão e demissão, férias, 13º e encargos trabalhistas em total conformidade com a legislação.</p>
         </div>
-    </section>
+      </div>
 
-    <!-- Dados Institucionais e Transparência -->
-    <section id="transparencia" class="py-5">
-        <div class="container py-4">
-            <div class="text-center mb-5">
-                <h2 class="fw-bold text-navy">Informações Institucionais</h2>
-                <p class="text-muted">Transparência e dados cadastrais que comprovam nossa solidez no mercado.</p>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-8 mx-auto">
-                    <div class="table-responsive bg-white rounded-3 shadow-sm border">
-                        <table class="table table-striped table-hover mb-0 align-middle">
-                            <tbody>
-                                <tr>
-                                    <th scope="row" class="text-navy"><i class="fa-solid fa-building me-2 text-gold"></i>Razão Social:</th>
-                                    <td>Conav Assessoria e Consultoria LTDA</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="text-navy"><i class="fa-solid fa-id-card me-2 text-gold"></i>CNPJ:</th>
-                                    <td>19.012.094/0001-47 (Matriz)</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="text-navy"><i class="fa-solid fa-stamp me-2 text-gold"></i>Registro CRC:</th>
-                                    <td>PR-008132/O</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="text-navy"><i class="fa-solid fa-calendar-day me-2 text-gold"></i>Data de Abertura:</th>
-                                    <td>23/09/2013 (+13 anos de atividade)</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="text-navy"><i class="fa-solid fa-percent me-2 text-gold"></i>Regime Tributário:</th>
-                                    <td>Optante pelo Simples Nacional (desde 01/01/2015)</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="text-navy"><i class="fa-solid fa-coins me-2 text-gold"></i>Capital Social:</th>
-                                    <td>R$ 40.000,00</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="text-navy"><i class="fa-solid fa-check-circle me-2 text-gold"></i>Situação Cadastral:</th>
-                                    <td><span class="badge bg-success">Ativa</span></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row" class="text-navy"><i class="fa-solid fa-user-shield me-2 text-gold"></i>Quadro Societário:</th>
-                                    <td>Fabiana Scarante (Sócio-Administrador)</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card-servico">
+          <div class="icone"><i class="bi bi-building-add"></i></div>
+          <h5>Abertura e Regularização</h5>
+          <p class="mb-0 small">Constituição de empresas, alterações contratuais e regularização de pendências junto aos órgãos públicos.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Contato e Localização -->
-    <section id="contato" class="py-5 bg-light">
-        <div class="container py-4">
-            <div class="row g-5">
-                <div class="col-lg-6">
-                    <h2 class="fw-bold text-navy mb-4">Entre em Contato</h2>
-                    <p class="text-muted mb-4">Estamos prontos para atender a sua empresa com agilidade e eficiência. Entre em contato por um de nossos canais abaixo.</p>
-                    
-                    <div class="d-flex align-items-start mb-4">
-                        <div class="icon-box bg-navy text-gold me-3 flex-shrink-0">
-                            <i class="fa-solid fa-location-dot"></i>
-                        </div>
-                        <div>
-                            <h6 class="fw-bold text-navy mb-1">Endereço Comercial / Correspondência:</h6>
-                            <p class="text-muted mb-0">Avenida Winston Churchill, 1824 - Conj 1207 - Andar 12<br>Condomínio Piemonte (Bloco Ala Piemonte Versati)<br>Capão Raso - Curitiba / PR - CEP: 81130-000</p>
-                        </div>
-                    </div>
+<!-- ================= SOBRE ================= -->
+<section class="py-5 bg-white" id="sobre">
+  <div class="container py-4">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <h2 class="section-title text-start">Sobre a Conav</h2>
+        <p class="mt-4">
+          A <strong>Conav Assessoria e Consultoria LTDA</strong> nasceu em <strong>23 de setembro de 2013</strong>,
+          em Curitiba/PR, com a proposta de oferecer uma contabilidade próxima, técnica e transparente.
+        </p>
+        <p>
+          Somos uma microempresa que atende outras micro e pequenas empresas — e sabemos, na prática,
+          o que significa conciliar caixa, impostos e crescimento. Nossa atividade principal é a
+          <strong>contabilidade</strong>, apoiada por consultoria em gestão empresarial e auditoria contábil e tributária.
+        </p>
 
-                    <div class="d-flex align-items-start mb-4">
-                        <div class="icon-box bg-navy text-gold me-3 flex-shrink-0">
-                            <i class="fa-solid fa-phone"></i>
-                        </div>
-                        <div>
-                            <h6 class="fw-bold text-navy mb-1">Telefone:</h6>
-                            <p class="text-muted mb-0"><a href="tel:4130157392" class="text-decoration-none text-muted">(41) 3015-7392</a></p>
-                        </div>
-                    </div>
-
-                    <div class="d-flex align-items-start">
-                        <div class="icon-box bg-navy text-gold me-3 flex-shrink-0">
-                            <i class="fa-solid fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h6 class="fw-bold text-navy mb-1">E-mail:</h6>
-                            <p class="text-muted mb-0"><a href="mailto:leticiadasilva@tmaenergiasolar.com" class="text-decoration-none text-muted">leticiadasilva@tmaenergiasolar.com</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Mapa -->
-                <div class="col-lg-6">
-                    <div class="map-container shadow-sm p-2 bg-white rounded-4 h-100">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.973948719294!2d-49.29348122370776!3d-25.50592833652874!2m3!1f0!f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce30edddb0a43%3A0xb35a3ee2ca27b8bf!2sAv.%20Winston%20Churchill%2C%201824%20-%20Cap%C3%A3o%20Raso%2C%20Curitiba%20-%20PR%2C%2081130-000!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                    </div>
-                </div>
+        <div class="row g-3 mt-4">
+          <div class="col-sm-6">
+            <div class="info-item">
+              <i class="bi bi-award"></i>
+              <div>
+                <strong class="d-block">Responsável técnica</strong>
+                <small>Fabiana Scarante — Sócia-Administradora</small>
+              </div>
             </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="info-item">
+              <i class="bi bi-clipboard-check"></i>
+              <div>
+                <strong class="d-block">Registro profissional</strong>
+                <small>CRC PR-008132/O</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="info-item">
+              <i class="bi bi-patch-check"></i>
+              <div>
+                <strong class="d-block">Situação cadastral</strong>
+                <small>Ativa desde 23/09/2013</small>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="info-item">
+              <i class="bi bi-cash-stack"></i>
+              <div>
+                <strong class="d-block">Simples Nacional</strong>
+                <small>Optante desde 01/01/2015</small>
+              </div>
+            </div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Rodapé -->
-    <footer class="bg-navy text-white py-4 border-top border-secondary">
-        <div class="container text-center">
-            <p class="mb-1">© 2026 Conav Assessoria e Consultoria LTDA. Todos os direitos reservados.</p>
-            <p class="small text-muted mb-0">CNPJ: 19.012.094/0001-47 | CRC PR-008132/O</p>
+      <div class="col-lg-6">
+        <div class="row g-4">
+          <div class="col-6">
+            <div class="selo-crc h-100">
+              <i class="bi bi-patch-check-fill"></i>
+              <h3 class="text-white mt-2 mb-1">Ativa</h3>
+              <small class="text-white-50">Situação na Receita Federal</small>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="selo-crc h-100">
+              <i class="bi bi-building"></i>
+              <h3 class="text-white mt-2 mb-1">2013</h3>
+              <small class="text-white-50">Ano de fundação</small>
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="p-4 rounded-4 bg-cinza">
+              <h5 class="mb-3"><i class="bi bi-geo-alt-fill me-2" style="color:var(--conav-verde);"></i>Onde estamos</h5>
+              <p class="mb-1 small">
+                Avenida Winston Churchill, 1824 — Conj. 1207, 12º andar<br>
+                Cond. Piemonte — Capão Raso
+              </p>
+              <p class="mb-3 small">Curitiba/PR — CEP 81130-000</p>
+              <a class="btn btn-conav btn-sm"
+                 href="[google.com](https://www.google.com/maps/search/?api=1&query=Avenida+Winston+Churchill+1824+Capao+Raso+Curitiba+PR+81130-000)"
+                 target="_blank" rel="noopener">
+                <i class="bi bi-map me-1"></i> Ver no Google Maps
+              </a>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Bootstrap 5 JS Bundle (com Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- ================= FRASE DESTAQUE ================= -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="frase-destaque text-center">
+      <i class="bi bi-quote fs-1"></i>
+      <h3 class="text-white fw-bold mt-2 mb-3" style="max-width:760px;margin:0 auto;">
+        “Contabilidade não é apenas cumprir obrigações — é dar clareza para o empresário decidir melhor.”
+      </h3>
+      <p class="mb-0 text-white-50">Conav Assessoria e Consultoria &middot; Curitiba/PR</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DADOS / CNAE ================= -->
+<section class="py-5 bg-cinza" id="dados">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Dados Cadastrais e Atividades</h2>
+      <p class="mt-4 text-muted">Informações públicas da empresa, conforme a Receita Federal.</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-md-6 col-lg-3">
+        <div class="cnae-sec h-100">
+          <small class="text-uppercase text-muted" style="letter-spacing:.05em;">CNPJ</small>
+          <h6 class="mt-1 mb-0">19.012.094/0001-47</h6>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="cnae-sec h-100">
+          <small class="text-uppercase text-muted" style="letter-spacing:.05em;">Razão Social</small>
+          <h6 class="mt-1 mb-0">Conav Assessoria e Consultoria LTDA</h6>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="cnae-sec h-100">
+          <small class="text-uppercase text-muted" style="letter-spacing:.05em;">Porte / Natureza</small>
+          <h6 class="mt-1 mb-0">Micro Empresa &middot; Soc. Empresária Ltda</h6>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="cnae-sec h-100">
+          <small class="text-uppercase text-muted" style="letter-spacing:.05em;">Capital Social</small>
+          <h6 class="mt-1 mb-0">R$ 40.000,00</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="cnae-principal h-100">
+          <small class="text-uppercase" style="letter-spacing:.06em;color:#9fd9c1;">Atividade Principal</small>
+          <h4 class="text-white mt-2 mb-2">69.20-6-01</h4>
+          <p class="mb-0">Atividades de contabilidade</p>
+        </div>
+      </div>
+
+      <div class="col-lg-8">
+        <h6 class="mb-3"><i class="bi bi-diagram-3 me-2" style="color:var(--conav-verde);"></i>Atividades Secundárias</h6>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <div class="cnae-sec h-100">
+              <strong class="d-block">70.20-4-00</strong>
+              <small>Atividades de consultoria em gestão empresarial, exceto consultoria técnica específica</small>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="cnae-sec h-100">
+              <strong class="d-block">69.20-6-02</strong>
+              <small>Atividades de consultoria e auditoria contábil e tributária</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTATO ================= -->
+<section class="py-5 bg-white" id="contato">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Fale Conosco</h2>
+      <p class="mt-4 text-muted">Precisa de um contador de confiança em Curitiba? Estamos à disposição.</p>
+    </div>
+
+    <div class="row g-4 mb-5">
+      <div class="col-md-4">
+        <div class="card-servico text-center">
+          <div class="icone mx-auto"><i class="bi bi-telephone"></i></div>
+          <h5>Telefone</h5>
+          <p class="mb-2"><a href="tel:+554130157392" class="text-decoration-none">(41) 3015-7392</a></p>
+          <a href="tel:+554130157392" class="btn btn-outline-secondary btn-sm rounded-pill px-3">Ligar agora</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-servico text-center">
+          <div class="icone mx-auto"><i class="bi bi-envelope"></i></div>
+          <h5>E-mail</h5>
+          <p class="mb-2 small text-break">leticiadasilva@tmaenergiasolar.com</p>
+          <a href="mailto:leticiadasilva@tmaenergiasolar.com" class="btn btn-outline-secondary btn-sm rounded-pill px-3">Enviar e-mail</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="card-servico text-center">
+          <div class="icone mx-auto"><i class="bi bi-geo-alt"></i></div>
+          <h5>Endereço</h5>
+          <p class="mb-2 small">Av. Winston Churchill, 1824<br>Conj. 1207 — Capão Raso</p>
+          <a href="[google.com](https://www.google.com/maps/search/?api=1&query=Avenida+Winston+Churchill+1824+Curitiba+PR)"
+             target="_blank" rel="noopener" class="btn btn-outline-secondary btn-sm rounded-pill px-3">Ver no mapa</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CORRESPONDÊNCIA -->
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="p-4 rounded-4 bg-cinza">
+          <h6 class="mb-2"><i class="bi bi-mailbox me-2" style="color:var(--conav-verde);"></i>Endereço para correspondência</h6>
+          <p class="mb-0 small">
+            Conav Assessoria e Consultoria LTDA<br>
+            Avenida Winston Churchill, 1824 — Conj. 1207, 12º andar<br>
+            Cond. Piemonte, Bloco Ala Piemonte Versati<br>
+            Capão Raso — Curitiba/PR — CEP 81130-000
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="py-5 bg-cinza" id="faq">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <h2 class="section-title">Perguntas Frequentes</h2>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
+        <div class="accordion" id="faqAccordion">
+
+          <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm overflow-hidden">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+                Minha empresa é MEI. Vocês atendem?
+              </button>
+            </h2>
+            <div id="q1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body small">
+                Atendemos microempreendedores individuais e também empresas no Simples Nacional, Lucro Presumido e Lucro Real.
+                Avaliamos seu caso e indicamos o regime mais vantajoso.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm overflow-hidden">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+                Preciso trocar de contador. Como funciona a transição?
+              </button>
+            </h2>
+            <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body small">
+                Cuidamos de todo o processo: solicitamos a documentação ao escritório anterior, conferimos pendências
+                e assumimos as obrigações sem interrupção.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm overflow-hidden">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
+                Vocês ajudam a abrir uma empresa?
+              </button>
+            </h2>
+            <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body small">
+                Sim. Fazemos a constituição da empresa, escolha do CNAE, enquadramento tributário e registro
+                nos órgãos competentes.
+              </div>
+            </div>
+          </div>
+
+          <div class="accordion-item border-0 mb-3 rounded-4 shadow-sm overflow-hidden">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#q4">
+                Atendem empresas de outros estados?
+              </button>
+            </h2>
+            <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+              <div class="accordion-body small">
+                Nosso foco é Curitiba e região metropolitana do Paraná, com atendimento remoto para clientes de outras localidades.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="cta text-center">
+      <h2 class="text-white mb-3">Vamos organizar a contabilidade da sua empresa?</h2>
+      <p class="mb-4 text-white-50">Fale com a Conav e receba um atendimento próximo e transparente.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a href="tel:+554130157392" class="btn btn-light fw-semibold rounded-pill px-4">
+          <i class="bi bi-telephone me-2"></i>(41) 3015-7392
+        </a>
+        <a href="mailto:leticiadasilva@tmaenergiasolar.com" class="btn btn-outline-light fw-semibold rounded-pill px-4">
+          <i class="bi bi-envelope me-2"></i>Enviar e-mail
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <h5><i class="bi bi-graph-up-arrow me-2" style="color:var(--conav-verde);"></i>Conav</h5>
+        <p class="small">
+          Conav Assessoria e Consultoria LTDA — contabilidade, auditoria e consultoria empresarial
+          em Curitiba/PR desde 2013.
+        </p>
+        <p class="small mb-1"><strong class="text-white">CNPJ:</strong> 19.012.094/0001-47</p>
+        <p class="small"><strong class="text-white">CRC:</strong> PR-008132/O</p>
+      </div>
+
+      <div class="col-lg-2 col-md-4">
+        <h5>Navegação</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#inicio">Início</a></li>
+          <li class="mb-2"><a href="#servicos">Serviços</a></li>
+          <li class="mb-2"><a href="#sobre">Sobre</a></li>
+          <li class="mb-2"><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-4">
+        <h5>Contato</h5>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><i class="bi bi-telephone me-2"></i><a href="tel:+554130157392">(41) 3015-7392</a></li>
+          <li class="mb-2 text-break"><i class="bi bi-envelope me-2"></i><a href="mailto:leticiadasilva@tmaenergiasolar.com">leticiadasilva@tmaenergiasolar.com</a></li>
+          <li class="mb-2"><i class="bi bi-geo-alt me-2"></i>Av. Winston Churchill, 1824 — Capão Raso, Curitiba/PR</li>
+        </ul>
+      </div>
+
+      <div class="col-lg-3 col-md-4">
+        <h5>Redes Sociais</h5>
+        <div class="d-flex gap-2">
+          <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="social-icon" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom d-flex flex-column flex-md-row justify-content-between align-items-center gap-2 text-center">
+      <span>&copy; <script>document.write(new Date().getFullYear())</script> Conav Assessoria e Consultoria LTDA. Todos os direitos reservados.</span>
+      <span class="text-white-50">Simples Nacional &middot; Situação Ativa &middot; Curitiba/PR</span>
+    </div>
+  </div>
+</footer>
+
+<a href="tel:+554130157392" class="whats-float" aria-label="Ligar">
+  <i class="bi bi-telephone-fill"></i>
+</a>
+
+<script src="[cdn.jsdelivr.net](https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js)"></script>
+<script>
+  // Fecha o menu mobile ao clicar em um link
+  document.querySelectorAll('#menu .nav-link, #menu .btn').forEach(link => {
+    link.addEventListener('click', () => {
+      const menu = document.querySelector('#menu');
+      if (menu.classList.contains('show')) {
+        bootstrap.Collapse.getInstance(menu)?.hide();
+      }
+    });
+  });
+</script>
+
 </body>
 </html>
